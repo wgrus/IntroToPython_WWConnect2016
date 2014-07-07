@@ -1,0 +1,273 @@
+<DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Intro to Python ~ Girl Develop It</title>
+
+        <meta name="description" content="This is the official Girl Develop It Core Intro to Python course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+        <meta name="author" content="Girl Develop It">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal/css/reveal.css">
+		<link rel="stylesheet" href="reveal/css/theme/gdilight.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+        <!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+
+        <!-- If use the PDF print sheet so students can print slides-->
+        
+        <link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+              <!-- Opening slide -->
+                <section>
+                  <img src = "images/gdi_logo_badge.png">
+                  <h3>Intro to Python</h3>
+                  <h4>Class 0: Installfest</h4>
+                </section>
+                
+                <!-- Welcome-->
+                <section>
+                  <h3>Welcome!</h3>
+                  <div class = "left-align">
+                  <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+                  <p class ="green">Some "rules"</p>
+                  <ul>
+                    <li>We are here for you!</li>
+                    <li>Every question is important</li>
+                    <li>Help each other</li>
+                    <li>Have fun</li>
+                  </ul>
+                  </div>
+                </section>
+                
+                <section>
+                  <h3>What we will cover today</h3>
+                  <ul>
+                    <li class ="fragment">Setting up your python environment</li>
+                  </ul>
+                </section>
+
+                <!-- Block 1: 25 minutes -->
+
+                <section>
+                    <h3>Command line, Python Shell, Text Editors</h3>
+                    <ul>
+	
+	                </ul>
+                    <table>
+                        <tr>
+                            <td><strong>Terminal</strong></td>
+                            <td>A program that has a command line interface and issues commands to the operating system.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Python Shell</strong></td>
+                            <td>A command line program that runs inside of the terminal, takes Python code as input, interprets it, and prints out any results.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Text Editor</strong></td>
+                            <td>A program that opens text files and allows the user to edit and save them. (Different than a word processor).</td>
+                        </tr>
+                    </table>
+                </section>
+<section>
+                    <h3>Where is my command line?</h3>
+                    <ul>
+	
+	                </ul>
+                    <table>
+                        <tr>
+                            <td><strong>MacOSX</strong></td>
+                            <td>Terminal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windows</strong></td>
+                            <td>PowerShell or <a href="http://git-scm.com/downloads">Git Bash</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Linux</strong></td>
+                            <td>Bash</td>
+                        </tr>
+                    </table>
+                </section>
+        
+
+        <section>
+          <h3>Command Line Cheatsheet</h3>
+          <table style="font-size: 20px; line-height: 1.4em;">
+            <tr>
+              <td>.</td>
+              <td>the current directory- ex: "touch ./wow.txt"</td>
+            </tr>
+            <tr>
+              <td>..</td>
+              <td>the parent of current directory - ex: "cd ../RubyParty"</td>
+            </tr>
+            <tr>
+              <td>~</td>
+              <td>the root directory- ex: "cd ~/Pictures"</td>
+            </tr>
+            <tr>
+              <td>cd [location]</td>
+              <td>"change directory" to [location]</td>
+            </tr>
+            <tr>
+              <td>pwd</td>
+              <td>"present working directory" - where am I?</td>
+            </tr>
+            <tr>
+              <td>ls -al</td>
+              <td>"list all" of the contents of current directory, including invisible ones</td>
+            </tr>
+            <tr>
+              <td>touch [filename.extension]</td>
+              <td>create a file called filename.extension in the current directory</td>
+            </tr>
+            <tr>
+              <td>mkdir [directoryname]</td>
+              <td>create a directory called directoryname in the current directory</td>
+            </tr>
+            <tr>
+              <td>rm [filename]</td>
+              <td>"remove" (delete) the file called filename</td>
+            </tr>
+            <tr>
+              <td>rm -rf [directoryname]</td>
+              <td>"remove recursively with force" the directory called directoryname</td>
+            </tr>
+            <tr>
+              <td>clear OR cmd+k</td>
+              <td>clear the terminal screen</td>
+            </tr>
+            <tr>
+              <td>help</td>
+              <td>lists all possible commands</td>
+            </tr>
+            <tr>
+              <td>man [command]</td>
+              <td>displays the manual for command</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+                    <h3>Working in the Command Line</h3>
+                    <p></p>
+                    <img src = "images/PowerShell.png"> 
+                    <p>The ">" prompt indicates you are in Powershell</p>
+                    <p>The "$" prompt indicates you are in Git Bash</p>
+                </section>
+        <section>
+                    <h3>Text Editors</h3>
+                    <table>
+                        <tr>
+                            <td><strong>Linux</strong></td>
+                            <td>Gedit, Jedit, Kate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MacOSX</strong></td>
+                            <td>TextMate, TextWrangler</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windows</strong></td>
+                            <td>Notepad++</td>
+                        </tr>
+                        <tr>
+                            <td><strong>All</strong></td>
+                            <td>Sublime Text, Vim, Emacs</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- Let's develop it: 10 minutes-->
+                <section>
+                    <h3>Python for Windows Users</h3>
+                    <ul>
+                        <li>
+                            <a href="http://www.python.org/download/">Install Python</a>
+                            (This step is for Windows users only. GNU/Linux and MacOSX come with Python installed)
+                        </li>
+                        <li>
+                            After installing Python, open PowerShell and type:
+                            <pre>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27", "User")</pre>
+                            You may have to close Powershell and restart it for the changes to take place.
+                        </li>
+                        <li>
+                            Or, if you are using Git Bash:
+                            <pre>go to control panel -> System and Security -> System -> Advanced System Settings -> </pre>
+                            <pre>Environmental Variables and choose Edit Path</pre>
+                        </li>
+                        <li>
+                            Locate and run the terminal program. Type 'python' and hit enter.
+                        </li>
+                        <li>
+                            More setup instructions are available:
+                            <a href="http://learnpythonthehardway.org/book/ex0.html">here</a>
+                            (You can, but don't have to install the other text editors recommended in this guide)
+                        </li>
+                    </ul>
+                </section>
+                <!-- Block 2: 30 minutes -->
+                <section>
+                    <h3>Working in the Python Shell</h3>
+                    <p>Open up your terminal and type 'python'</p>
+                    <img src = "images/pythonshell.png"> 
+                    <p>The ">>>" prompt indicates you are in the Python shell</p>
+                    <p class="fragment">To exit out of the Python shell and return to the command line, type CTL-Z (CMD-Z on Mac) or type "quit()"</p>
+                </section>
+
+                
+                <section>
+                    <h3>Questions?</h3>
+                </section>
+                <section></section>
+            </div>
+            <footer>
+                <div class="copyright">
+                    Intro to Python ~ Girl Develop It ~
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="reveal/lib/js/head.min.js"></script>
+        <script src="reveal/js/reveal.min.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
+
