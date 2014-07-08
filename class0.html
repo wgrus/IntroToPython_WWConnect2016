@@ -167,7 +167,7 @@
                     <p></p>
                     <img src = "images/PowerShell.png"> 
                     <p>The ">" prompt indicates you are in Powershell</p>
-                    <p>The "$" prompt indicates you are in Git Bash</p>
+                    <p>The "$" prompt indicates you are in Git Bash or Bash or Terminal</p>
                 </section>
         <section>
                     <h3>Text Editors</h3>
@@ -182,13 +182,16 @@
                         </tr>
                         <tr>
                             <td><strong>Windows</strong></td>
-                            <td>Notepad++</td>
+                            <td><a href="http://notepad-plus-plus.org/download/v6.6.7.html">Notepad++</a></td>
                         </tr>
                         <tr>
                             <td><strong>All</strong></td>
-                            <td>Sublime Text, Vim, Emacs</td>
+                            <td><a href="http://www.sublimetext.com/2">Sublime</a> Text, Vim, Emacs</td>
                         </tr>
                     </table>
+                    <br>
+                    <br>
+                    <p> Download Notepad++ or Sublime Text 2 to use as your text editor for this class </p>
                 </section>
 
                 <!-- Let's develop it: 10 minutes-->
@@ -200,25 +203,20 @@
                             (This step is for Windows users only. GNU/Linux and MacOSX come with Python installed)
                         </li>
                         <li>
-                            After installing Python, open PowerShell and type:
+                            If you are using PowerShell, open PowerShell and type (change to Python34 if you are using Python 3):
                             <pre>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27", "User")</pre>
+                        </li>
+                        <li>
                             You may have to close Powershell and restart it for the changes to take place.
                         </li>
                         <li>
                             Or, if you are using Git Bash:
                             <pre>go to control panel -> System and Security -> System -> Advanced System Settings -> </pre>
                             <pre>Environmental Variables and choose Edit Path</pre>
+                            <pre>Add "C:\Python27" (or "C:\Python34" if you are using Python3) to your path.</pre>
                         </li>
-                        <li>
-                            Locate and run the terminal program. Type 'python' and hit enter.
-                        </li>
-                        <li>
-                            More setup instructions are available:
-                            <a href="http://learnpythonthehardway.org/book/ex0.html">here</a>
-                            (You can, but don't have to install the other text editors recommended in this guide)
-                        </li>
-                    </ul>
                 </section>
+
                 <!-- Block 2: 30 minutes -->
                 <section>
                     <h3>Working in the Python Shell</h3>
