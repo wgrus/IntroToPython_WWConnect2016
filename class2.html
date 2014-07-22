@@ -158,6 +158,7 @@ else:
     print('x is not equal to 5')
     x_is_5 = False
     print('Still in the else block of x == 5')
+#if you are typing this in the shell, hit enter here to get out of the code block.
 print('Outside of the if or else blocks.')
 print('x_is_5:')
 print(x_is_5)
@@ -167,12 +168,11 @@ print(x_is_5)
                 <section>
                     <h3>Predicates</h3>
                     <p>The expression after `if` and before the colon is a Boolean expression, also called a <strong>predicate</strong></p>
-                    <p class="fragment">A variable can be used to store the evaluation of a predicate, especially if it is particularly long or complicated</p>
                     <p class="fragment">Predicates can be combined or prefaced with <strong>Logical operators</strong>: `not`, `and` and `or`</p>
                     <pre><code contenteditable class="fragment python">
 # Simple check of two variables
 x,y = (3,4)
-if x != 0 or y != 0:
+if x != 0 and y != 0:
     print('The point x,y is not on the x or y axis')
                     </code></pre>
                     <p class="fragment">Predicates and the logical operators that act on them can be wrapped in parenthesis to enforce prescendence</p>
@@ -213,7 +213,7 @@ else:
                     <pre><code contenteditable class="fragment python">
 # Simple check of two variables
 x,y = (3,4)
-if x != 0 or y != 0:
+if x != 0 and y != 0:
     print('The point x,y is not on the x or y axis')
 elif x != 0:
     print('The point is on the y axis')
@@ -232,6 +232,8 @@ if x > 5:
     if x > 10:
         print('...it is also greater than 10')
     print('Done evaluating the x > 10 block')
+#if you are typing this in the python shell,
+#hit enter here to get out of the code block.
 print('Done evaluating the x > 5 block')
                     </code></pre>
                 </section>
@@ -270,7 +272,6 @@ elif input_value == '2':
 string = "Python is fun"
 for letter in string:
     print(letter)
-print('Done')
                     </code></pre>
                 <p class="fragment">The for loop performs the task in the code block for every element in a collection. We will talk more about for loops next week when we talk about data structures.</p>
                 </section>
@@ -282,7 +283,6 @@ x = 10
 while x > 0:
     print(x)
     x = x - 1
-print('Done')
                     </code></pre>
                 <p class="fragment">The while statement takes a predicate, and as long as it evaluates to True, the code block beneath it is repeated.</p>
                 <p class="fragment">This creates a <strong>loop</strong>. Without the `x = x - 1` statement, this would be an <strong>infinite loop</strong></p>
@@ -300,6 +300,7 @@ result = 1
 while n > 1:
     result = result * n
     n = n - 1
+#in python shell, hit enter to get out of the while loop code block
 print("The factorial of " + input_value + " is:")
 print(result)
                     </code></pre>
