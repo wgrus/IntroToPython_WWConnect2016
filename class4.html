@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Intro to Python ~ Girl Develop It</title>
+
+        <meta name="description" content="This is the official Girl Develop It Core Intro to Python course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+        <meta name="author" content="Girl Develop It">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel="stylesheet" href="reveal/css/reveal.css">
+        <link rel="stylesheet" href="reveal/css/theme/gdicool.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+        <!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+
+        <!-- If use the PDF print sheet so students can print slides-->
+        
+        <link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+              <!-- Opening slide -->
+                <section>
+                    <img src = "images/gdi_logo_badge.png">
+                    <h3>Intro to Python</h3>
+                    <h4>Class 4</h4>
+                </section>
+
+                <section>
+                    <h3>Review</h3>
+                    <ul>
+                        <li>Method calls</li>
+                        <li>Combining lists and dictionaries</li>
+                        <li>Builtins for collections</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Lists of ... Lists</h3>
+                    <p>Lists can contain not only numbers or strings, but also other lists.</p>
+                    <p class="fragment">Such a structure is said to be  <strong>nested</strong></p>
+                    <p class="fragment">The following is a list of lists:</p>
+                    <pre><code contenteditable class="fragment python">
+game_board = [
+    ['O', 'X', ' '],
+    [' ', 'X', ' '],
+    [' ', ' ', ' '],
+]
+                    </code></pre>
+                    <p class="fragment">This can be indexed successively with <code>game_board[0][1]</code></p>
+                </section>
+                <section>
+                    <h3>Nested Lists continued</h3>
+                    <p>A list can be appended to a list as well</p>
+                    <pre><code contenteditable class="fragment python">
+mary_to_dos = ['eat', 'work', 'pick up laundry', 'care for baby', 'sleep']
+fran_to_dos = ['eat', 'work', 'call plumber', 'sleep']
+baby_to_dos = ['eat', 'sleep']
+
+all_to_dos = []
+all_to_dos.append(mary_to_dos)
+all_to_dos.append(fran_to_dos)
+all_to_dos.append(baby_to_dos)
+
+print(all_to_dos)
+
+for to_dos in all_to_dos:
+    for to_do in to_dos:
+        print(to_do)
+                    </code></pre>
+                    <p class="fragment">What if we want to <strong>flatten</strong> the to do's?</p>
+                    <p class="fragment">What if we want the to do's to be unique?</p>
+                </section>
+
+                <section>
+                    <h3>Lists of Dictionaries</h3>
+                    <p>One of the most common and useful nested data structures, is a list of dictionaries</p>
+                    <pre><code contenteditable class="fragment python">
+card_a = {
+    'suit': 'spades',
+    'number': 4,
+}
+
+card_b = {
+    'suit': 'hearts',
+    'number': 8,
+}
+
+hand = [card_a, card_b]
+
+print('The hand contains:')
+for card in hand:
+    print('A', card['number'], 'of', card['suit'])
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Dictionary of Lists</h3>
+                    <p>A dictionary can also contain values that are themselves other collections, such as lists.</p>
+                    <p class="fragment">Let's revisit the group of to do lists and find a better representation:</p>
+                    <pre><code contenteditable class="fragment python">
+mary_to_dos = ['eat', 'work', 'pick up laundry', 'care for baby', 'sleep']
+fran_to_dos = ['eat', 'work', 'call plumber', 'sleep']
+baby_to_dos = ['eat', 'sleep']
+
+all_to_dos = {
+    'mary': mary_to_dos,
+    'fran': fran_to_dos,
+    'baby': baby_to_dos,
+}
+
+for name, to_dos in all_to_dos.items():
+    print(name, 'needs to: ', to_dos)
+
+# Changing this later can be accomplished with
+all_to_dos['baby'].append('cry')
+                    </code></pre>
+                    <p class="fragment">Now the to do lists can be indexed or modified by name</p>
+                </section>
+
+                <section>
+                    <h3>Means of Combination</h3>
+                    <p>Lists, dictionaries, sets, tuples, and other collections are all a means of combination.</p>
+                    <p class="fragment">They can be freely combined to create the data structure needed for a particular problem</p>
+                    <p class="fragment">Eg. A list of dictionaries with lists</p>
+                    <pre><code contenteditable class="fragment python">
+all_tweets = [
+    {
+        'author': 'mary',
+        'handle': '@hadalittlelamb',
+        'date': '2013-01-22',
+        'tweets': [
+            'at Loco Pops enjoying a Raspberry Sage popsicle',
+            'Learning Python is so much fun',
+        ],
+    },
+]
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Builtins for collections</h3>
+                    <p>Python provides several functions that help us work with these collections.</p>
+                    <table class="fragment">
+                        <tr>
+                            <td>len()</td>
+                            <td>Given a collection, return its length</td>
+                        </tr>
+                        <tr>
+                            <td>range()</td>
+                            <td>Create a list of integers in the range provided.</td>
+                        </tr>
+                        <tr>
+                            <td>sorted()</td>
+                            <td>Given a collection, returns a sorted copy of that collection</td>
+                        </tr>
+                        <tr>
+                            <td>enumerate()</td>
+                            <td>Returns a list of (index, element) from the list</td>
+                        </tr>
+                        <tr>
+                            <td>zip()</td>
+                            <td>Given one or more iterables, returns a list of tuples with an element from each iterable</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Examples of using Builtins</h3>
+                    <pre><code contenteditable class="fragment python">
+# Using len() - Determines length
+print(len([1, 2]))
+
+# range() - Quickly creates a list of integers
+print(range(5))
+print(range(5, 10))
+print(range(0, 10, 2))
+print(range(9, -1, -1))
+
+# sorted() - Sort a given list
+grades = [93, 100, 60]
+grades = sorted(grades)
+print(grades)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Builtins Examples continued</h3>
+                    <pre><code contenteditable class="fragment python">
+# enumerate() - Obtain the index of the element in the loop
+
+print('To Do:')
+to_dos = ['work', 'sleep', 'work']
+for index, item in enumerate(to_dos):
+    print('{0}. {1}'.format(index + 1, item))
+
+print(list(enumerate(to_dos)))
+
+# zip()
+widths = [10, 15, 20]
+heights = [5, 8, 12]
+for width, height in zip(widths, heights):
+    print('Area is {0}'.format(width * height))
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>List Comprehensions</h3>
+                    <p>I have a list and I have something I want to do to each element to create a new list</p>
+                    <pre><code contenteditable class="fragment python">
+squares = []
+for number in range(11):
+    squares.append(number ** 2)
+                    </code></pre>
+                    <p class="fragment">This pattern is so common, there is a shorter way to express it:</p>
+                    <pre><code contenteditable class="fragment python">
+squares = [number ** 2 for number in range(11)]
+                    </code></pre>
+                    <p class="fragment">This is called a <strong>list comprehension</strong></p>
+                </section>
+
+                <section>
+                    <h3>Generators</h3>
+                    <p>A <strong>generator</strong> is like a list, but it is evaluated when it is used rather than when it is defined.</p>
+                    <p class="fragment">Generators are useful when the list may be very large or when the task is time consuming</p>
+                    <pre><code contenteditable class="fragment python">
+#Define a generator
+def find_squares(numbers):
+    for number in numbers
+        yield number ** 2
+
+#Iterate on a generator like a list
+for square in find_squares(range(10)):
+    print(square)
+                    </code></pre>
+                    <p class="fragment">A function with a <strong>yield</strong> statement creates a generator. Each yield statement "yields" the next value in the sequence</p>
+                </section>
+
+                <section>
+                    <h3>Generator Comprehensions</h3>
+                    <p>A <strong>generator comprehension</strong> is created the same way as list comprehension, but replacing the square brackets with parenthesis.</p>
+                    <pre><code contenteditable class="fragment python">
+ten_squares = (number ** 2 for number in range(10))
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Higher order functions</h3>
+                    <p>A <strong>higher order function</strong> is a function that returns a function, takes a function as an argument, or both</p>
+                    <p class="fragment">One commonly used higher order function that is a Python builtin is called <strong>map</strong></p>
+                    <pre><code contenteditable class="fragment python">
+# Define any function
+def square(number):
+    return number ** 2
+
+# Pass the function to map along with an iterable
+squares = map(square, range(10))
+                    </code></pre>
+                    <p class="fragment">N.B. - map has performance problems for large data sets and should only be used when the data set is well defined and somewhat small.</section>
+                </section>
+                <!-- Let's develop it: 25 minutes -->
+                <section>
+                    <h3>Let's Develop It</h3>
+					<p>Write a program that expands on your previous one. If it is unfinished, feel free to finish the original exercise first.</p>
+                </section>
+                <section>
+                    <h3>Reading and Writing Data</h3>
+                    <p>Often you want to read information from a file</p>
+                    <p>or write information to a file</p>
+                </section>
+                <section>
+                    <h3>Reading from a file</h3>
+                    <p>Python can easily read input from text files</p>
+                    <p>(tab-delimited, space-delimited, comma-delimited)</p>
+                    <p>with builtin modules like <a href="https://docs.python.org/2/library/csv.html">csv</a>.</p>
+                    <br>
+                    <p class="fragment">Python packages have been built to read and write data to other types of files</p>
+                    <p class="fragment">(PDF: <a href="https://pypi.python.org/pypi/pdfminer/">PDFminer</a>, Word: <a href="https://pypi.python.org/pypi/docx/0.2.4">docx</a>, Excel: <a href="http://www.python-excel.org/">xlrd and xlwt</a>)</p>
+                </section>  
+                <section>
+                    <h3>Reading from a file</h3>
+                    <p>Download a <a href="data/produce.txt">small example file</a></p>
+                    <p>Make a new directory in your current python directory called "data" and save the file in the data directory.</p>
+                    <pre><code contenteditable class="fragment python">
+# Opening a file
+file = open('data/produce.txt', 'rb')
+
+for line in file:
+    print line
+    
+file.close()
+                    </code></pre>
+                    <pre><code contenteditable class="fragment python">
+# Opening a file
+for open('data/produce.txt', 'rb') in file:
+    print line
+    
+file.close()
+                    </code></pre>
+                    <p class="fragment">What do you notice about reading lines in from a file?</p>
+                </section>
+                <section>
+                    <h3>Reading from a file</h3>
+                    <p><strong>with</strong></p>
+                    <p>When we open files with the "with" keyword, they will be closed automatically</p>
+                    <code/><pre>
+# Opening a file with with
+with open('data/produce.txt', 'rb') as file:
+    for line in file:
+        print(line)
+    
+file.closed
+                    </code></pre>
+                    </section>
+                <section>
+                <h3>Reading from a file</h3>
+                    <p>Ignore the header rows.</p>
+                    <pre><code contenteditable class="fragment python">
+# Only reading data rows
+file = open('data/produce.txt', 'rb')
+
+for line in file:
+    if not line.startwith('#'):
+        print line
+                    </code></pre>
+                    <p class="fragment">Remove extra line breaks</p>
+                    <pre><code contenteditable class="fragment python">
+# Only reading data rows and removing extra line breaks
+file = open('data/produce.txt', 'rb')
+
+for line in file:
+    if not line.startwith('#'):
+        print line.strip()
+                    </code></pre>
+                </section>
+                <section>
+                <h3>Reading from a file</h3>
+                    <p>Reading the file in as a list</p>
+                    <pre><code contenteditable class="fragment python">
+# reading the file in as a list
+fo = open('data/produce.txt', 'rb')
+
+lines = fo.readlines()
+print(lines)
+
+fo.close()
+                    </code></pre>
+                    <p class="fragment">What do you notice about readlines?</p>
+                </section>
+                <section>
+                <h3>What do we do with the information we read in</h3>
+                <p>Store it to use with another file</p>
+                <pre><code contenteditable class="fragment python">
+# reading the file in as a list
+from __future__ import print_function #(only enter this line if you are using python 2)
+
+fo = open('data/produce.txt', 'rb')
+produce_price={}
+for line in fo:
+    if not line.startswith('#'):
+        columns = line.split("\t")
+        if not produce_price.get(columns[1]):
+            produce_price[columns[1]] = {}
+        produce_price[columns[1]]['unit'] = columns[2]
+        produce_price[columns[1]]['unit_price'] = columns[3].rstrip()
+
+fo.close()
+for produce in produce_price:
+    print("A ", produce, " is ", produce_price[produce]['unit_price'], " per ", produce_price[produce]['unit'])
+    </code></pre>
+    </section>
+                    <section>
+                <h3>What do we do with the information we read in</h3>
+                <p>Write the information out to a new file</p>
+                <pre><code contenteditable class="fragment python">
+# reading the file in as a list
+from __future__ import print_function #(only enter this line if you are using python 2)
+
+fo = open('data/produce.txt', 'rb')
+fw = open('produce_flyer.txt', 'wb')
+produce_price={}
+for line in fo:
+    if not line.startswith('#'):
+        columns = line.split("\t")
+        if not produce_price.get(columns[1]):
+            produce_price[columns[1]] = {}
+        produce_price[columns[1]]['unit'] = columns[2]
+        produce_price[columns[1]]['unit_price'] = columns[3].rstrip()
+for produce in produce_price:
+    flyer_list = "A " + produce + " is " + produce_price[produce]['unit_price'] + " per "+ produce_price[produce]['unit']
+    fw.write(flyer_list)
+    </code></pre>
+    </section>
+    <section>
+                    <h3>Let's Develop It</h3>
+					<p>Write a program that expands on one of these programs. Include functions and conditionals to make the output to the screen or to the file more readable.</p>
+                    <p>Or, write a program using this <a href="data/phonebook.txt">phonebook example file</a> that prints or writes the phonebook in alphabetical order by last name and has all of the phone numbers in the same format.</p>
+                    <br>
+                    <p class="fragment">When you are reading info in it is important to understand the file format!</p>
+                    <p class="fragment">When you are writing info out it is important to understand the file format!</p> 
+                </section>
+                <!-- Block 1  - Intro to Classes and OOP - 20 minutes -->
+                <section>
+                <h3>Some remaining nuts and bolts</h3>
+                <ul>
+                    <li>Classes</li>
+                    <li>Exception handling</li>
+                    <li>PEP 8 - style guide</li>
+                <ul>
+                </section>
+                <section>
+                    <h3>Functions on Dictionaries</h3>
+                    <p></p>
+                    <pre><code contenteditable class="fragment python">
+character = {
+    'x': 10,
+    'y': 20,
+    'health': 100,
+}
+
+def injure(character, damage):
+    character['health'] = character['health'] - damage
+    if character['health'] < 0:
+        character['health'] = 0
+
+def heal(character, amount):
+    character['health'] = character['health'] + amount
+    if character['health'] > 100:
+        character['health'] = 100
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Classes</h3>
+                    <p>A <strong>class</strong> creates a new type of object.</p>
+                    <p class="fragment">A class defines the attributes and methods of objects of that type</p>
+                    <p class="fragment">Classes are used to create new objects of that type</p>
+                    
+                </section>
+
+                <section>
+                    <h3>A Sense of Self</h3>
+                    <p>The first argument to every method is <strong>self</strong>.</p>
+                    <p class="fragment">self contains the attributes and methods for the current object</p>
+                    <pre><code contenteditable class="fragment python">
+class Character():
+
+    def __init__(self, x, y, health):
+        self.x = x
+        self.y = y
+        self.health = health
+
+character = Character(10, 20, 100)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>The __init__ Method</h3>
+                    <p>This method defines what the class should do when creating a new object.</p>
+                    <pre><code contenteditable class="fragment python">
+class Character():
+
+    def __init__(self, x, y, health):
+        self.x = x
+        self.y = y
+        self.health = health
+
+character_a = Character(10, 20, 100)
+character_b = Character(10, 20, 100)
+                    </code></pre>
+                <p class="fragment">To create a new Character, the syntax looks like a function call. These arguments are passed to the __init__ method</p>
+                </section>
+
+                <section>
+                    <h3>Class Methods</h3>
+                    <p>A class also defines <strong>methods</strong>, which are functions that operate on objects of that type</p>
+                    <p class="fragment">Assigning values to an attribute on self is how we <strong>mutate</strong> the object's state.</p>
+                    <pre><code contenteditable class="fragment python">
+# inside the character class
+
+    def heal(self, amount):
+        self.health = self.health + amount
+        if self.health > 100:
+            self.health = 100
+
+    def injure(self, amount):
+        self.health = self.health - amount
+        if self.health < 0:
+           self.health = 0
+
+character = Character(10, 20, 100)
+character.injure(10)
+                    </code></pre>
+                </section>
+
+                
+                <section>
+                    <pre><code contenteditable class="python">
+# in character.py
+class Character():
+
+    def __init__(self, x, y, health):
+        self.x = x
+        self.y = y
+        self.health = health
+
+    def heal(self, amount):
+        self.health = self.health + amount
+        if self.health > 100:
+            self.health = 100
+                    </code></pre>
+                    <pre><code contenteditable class="python">
+# in Python shell
+from character import Character
+character_a = Character(10, 20, 100)
+character_a.injure(10)
+print("character health is: " + character_a.health)
+                    </code></pre>
+                </section>
+                <section>
+                <h3>Exception Handling</h3>
+                <p>Try/Except blocks are similar to if/else statements and can sometimes they can be used interchangeably.</p>
+                <p>If no error is raised by the code block in "try:", that code block will execute. Otherwise, the except code block (usually an informative message) will execute.</p>
+                <pre><code contenteditable class="python">
+# in your texteditor, copy the following code and save it in your GDI directory as tryexcept.py.
+import sys
+
+try:
+    fo = open(sys.argv[1], 'rb')
+except IndexError:
+    print("No input file given.")
+except IOError:
+    print(sys.argv[1] + " does not exist.")
+                    </code></pre>
+                    <code><pre>
+
+#in the command line, try
+python tryexcept.py
+python tryexcept.py
+                    </code></pre>
+                    </section>
+                <!-- Block 3 - Functional Programming - 20 Minutes -->
+                <section>
+                <h3>PEP 8 - A python style guide</h3>
+                <p>Python has <a href="http://legacy.python.org/dev/peps/pep-0008/">a style guide</a> that suggests how your code should look</p>
+                <ul>
+                    <li>indentation</li>
+                    <li>white space</li>
+                    <li>comments/doc strings</li>
+                    <li>naming conventions</li>
+                </ul>
+                </section>
+                <section>
+                <h3>Ways to start coding</h3>
+                <p class="fragment">Understand your inputs and your outputs.</p>
+                <p class="fragment">Map out your functions and data structures in pseudocode</p>
+                <p class="fragment">Test driven development</p>
+                <p class="fragment">Start simple and iteratively add complexity</p>
+                <h3 class="fragment">Ways to Keep Coding</h3>
+                <p class="fragment">Don't be afraid of errors!</p>
+                <p class="fragment">Pair code/ Meetup code</p>
+                <p class="fragment">Join an Open Source project</p>
+                <p class="fragment">Identify packages/APIs used by people in your field and learn how to use them.</p>
+                </section>
+                
+
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <p>Choose among any of these projects (Resources available on the next page):</p>
+                    <ul>
+                        <li>Search the Web - Write a program that searches the web using DuckDuckGo and displays results.
+                        </li>
+                        <li>Encryption - Write a program that encrypts a string from user input, or file and is able to decrypt it as well.
+                        </li>
+                        <li>Command Line Game - Create a simple game that runs inside the terminal.
+                        </li>
+                        <li>Extract and/or format information from any of the sample datasets (on the next page) and incorporate into a program.
+                        </li>
+                </section>
+
+                <section>
+                    <h3>Let's Develop It Resources</h3>
+                    <table>
+                        <tr>
+                            <td>Search the Web</td>
+                            <td><a href="https://github.com/crazedpsyc/python-duckduckgo/">python-duckduckgo</a> library to get started. Download duckduckgo.py and put it in the same directory as your code. Use the query() function it provides to begin. (HINT: Results are often empty, but 'related' list usually has a few hits.)</td>
+                        </tr>
+                        <tr>
+                            <td>Encryption</td>
+                            <td>Read about the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a> or find a similarly simple encryption mechanism online. You should find the ord() and chr() functions helpful, as well as the modulus operator '%'</td> 
+                        </tr>
+                    </table>
+                    <p>continued on next page...</p>
+                </section>
+
+                <section>
+                    <h3>Let's Develop It Resources Continued</h3>
+                    <table>
+                        <tr>
+                            <td>Command Line Game</td>
+                            <td>This might be a text adventure with paragraphs of text followed by a series of choices for the user. A choice maps to another node in the story (another paragraph with choices). You might try storing the paragraphs separately in a text file. The format might be something different, such as a series of "rooms", each with a description, for the user to explore by entering commands such as "go west". Examples of these kinds of games are <a href="https://en.wikipedia.org/wiki/Colossal_Cave_Adventure">Colossal Cave Adventure</a> and <a href="https://en.wikipedia.org/wiki/Zor">Zork</a></td>
+                        </tr>
+                        <tr>
+                            <td>Example CSV datasets</td>
+                            <td><a href="http://seanlahman.com/baseball-archive/statistics/">Baseball dataset</a>, <a href="http://support.spatialkey.com/spatialkey-sample-csv-data/">Geography datasets</a>, <a href="http://geog.uoregon.edu/GeogR/data/index.html">More Geography datasets</a>, <a href="http://people.sc.fsu.edu/~jburkardt/datasets/triola/triola.html">Small sample datasets on various topics</a>.</td>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Future Resources</h3>
+                    <p></p>
+                    <table>
+                        <tr>
+                            <td><a href="http://docs.python.org/2/">Python.org Documentation</a></td>
+                            <td>Official Python Documentation</td>
+                        </tr>
+                        <tr>
+                            <td><a href="http://www.greenteapress.com/thinkpython/html/index.html">Think Python</a></td>
+                            <td>Online and print book with exercises.</td>
+                        </tr>
+                        <tr>
+                            <td><a href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</a></td>
+                            <td>Online and print book with exercises</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://developers.google.com/edu/python/">Google's Python Class</a></td>
+                            <td>Video lectures coupled with exercises</td>
+                        </tr>
+                        <tr>
+                            <td><a href="http://newcoder.io/tutorials/">New Coder</a></td>
+                            <td>Ideas for slightly larger projects and resources to get you started. Projects include accessing API's, scraping pages, writing IRC bots, and others.</td>
+                        </tr>
+                        <tr>
+                            <td><a href="http://software-carpentry.org/v4/python/index.html">Software Carpentry</a></td>
+                            <td>python video lectures</td>
+                        <tr>
+                            <td><a href="http://girldevelopit.com/">Girl Develop It</a></td>
+                            <td>Local workshops, events, and coding sessions</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Questions?</h3>
+                </section>
+
+            </div>
+            <footer>
+                <div class="copyright">
+                    Intro to Python ~ Girl Develop It ~
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="reveal/lib/js/head.min.js"></script>
+        <script src="reveal/js/reveal.min.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/themes
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
+
