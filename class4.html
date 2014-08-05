@@ -294,7 +294,7 @@ squares = map(square, range(10))
                     <p>Make a new directory in your current python directory called "data" and save the file in the data directory.</p>
                     <pre><code contenteditable class="fragment python">
 # Opening a file
-file = open('data/produce.txt', 'rb')
+file = open('data/produce.txt', 'r')
 
 for line in file:
     print line
@@ -303,8 +303,8 @@ file.close()
                     </code></pre>
                     <pre><code contenteditable class="fragment python">
 # Opening a file
-for open('data/produce.txt', 'rb') in file:
-    print line
+for line in open('data/produce.txt', 'r'):
+    print(line)
     
 file.close()
                     </code></pre>
@@ -316,7 +316,7 @@ file.close()
                     <p>When we open files with the "with" keyword, they will be closed automatically</p>
                     <code/><pre>
 # Opening a file with with
-with open('data/produce.txt', 'rb') as file:
+with open('data/produce.txt', 'r') as file:
     for line in file:
         print(line)
     
@@ -328,20 +328,20 @@ file.closed
                     <p>Ignore the header rows.</p>
                     <pre><code contenteditable class="fragment python">
 # Only reading data rows
-file = open('data/produce.txt', 'rb')
+file = open('data/produce.txt', 'r')
 
 for line in file:
-    if not line.startwith('#'):
-        print line
+    if not line.startswith('#'):
+        print(line)
                     </code></pre>
                     <p class="fragment">Remove extra line breaks</p>
                     <pre><code contenteditable class="fragment python">
 # Only reading data rows and removing extra line breaks
-file = open('data/produce.txt', 'rb')
+file = open('data/produce.txt', 'r')
 
 for line in file:
-    if not line.startwith('#'):
-        print line.strip()
+    if not line.startswith('#'):
+        print(line.strip())
                     </code></pre>
                 </section>
                 <section>
@@ -349,7 +349,7 @@ for line in file:
                     <p>Reading the file in as a list</p>
                     <pre><code contenteditable class="fragment python">
 # reading the file in as a list
-fo = open('data/produce.txt', 'rb')
+fo = open('data/produce.txt', 'r')
 
 lines = fo.readlines()
 print(lines)
@@ -365,7 +365,7 @@ fo.close()
 # reading the file in as a list
 from __future__ import print_function #(only enter this line if you are using python 2)
 
-fo = open('data/produce.txt', 'rb')
+fo = open('data/produce.txt', 'r')
 produce_price={}
 for line in fo:
     if not line.startswith('#'):
@@ -387,8 +387,8 @@ for produce in produce_price:
 # reading the file in as a list
 from __future__ import print_function #(only enter this line if you are using python 2)
 
-fo = open('data/produce.txt', 'rb')
-fw = open('produce_flyer.txt', 'wb')
+fo = open('data/produce.txt', 'r')
+fw = open('produce_flyer.txt', 'w')
 produce_price={}
 for line in fo:
     if not line.startswith('#'):
@@ -537,7 +537,7 @@ print("character health is: " + character_a.health)
 import sys
 
 try:
-    fo = open(sys.argv[1], 'rb')
+    fo = open(sys.argv[1], 'r')
 except IndexError:
     print("No input file given.")
 except IOError:
