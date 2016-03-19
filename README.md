@@ -4,7 +4,9 @@ Jupyter Notebooks for Intro to Python Workshop at WWConnect2016
 https://github.com/wgrus/IntroToPython_WWConnect2016
 
 Wendy Grus
+
 @WGrus
+
 wendygrus@gmail.com
 
 Installation
