@@ -1,6 +1,7 @@
 # IntroToPython_WWConnect2016
 
 Jupyter Notebooks for Intro to Python Workshop at WWConnect2016
+https://github.com/wgrus/IntroToPython_WWConnect2016
 
 Installation
 ============
