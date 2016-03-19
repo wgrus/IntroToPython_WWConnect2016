@@ -21,7 +21,7 @@ Open a command line window (Terminal on Mac or Powershell on Windows). At the co
 
 > conda install jupyter
 
-Choose download as zip from the [notebook directory from Wendy's Github page](https://github.com/wgrus/IntroToPython_WWConnect2016){target="_blank"}. Save the download in a place you can maneuver to from your command line (in a directory on the desktop is a good choice.) Unzip the directory.
+Choose download as zip from the [notebook directory from Wendy's Github page](https://github.com/wgrus/IntroToPython_WWConnect2016). Save the download in a place you can maneuver to from your command line (in a directory on the desktop is a good choice.) Unzip the directory.
 
 Open up the command line window again (or use the same one if you didn't close it). Maneuver to the directory containing the notebooks. At the command line type
 
